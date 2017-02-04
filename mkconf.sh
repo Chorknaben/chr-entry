@@ -1,0 +1,1 @@
+docker network inspect chordockerized_default | python2.7 get_container_ips_by_name.py server | sed 's/\/.*//' | sed 's/\(.*\)/server \1;/' | tr -d '\n' | read upstream; sed "s/--UPSTREAM_IPS--/$upstream/" templates/production-site.conf.tpl > sites-enabled/production-site.conf

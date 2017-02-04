@@ -1,0 +1,1 @@
+sudo docker run -p "80:80" -p "443:443" -v /home/svt/code/html/chor-dockerized/chr-entry/sites-enabled:/etc/nginx/conf.d -v /home/svt/code/html/chor-dockerized/chr-entry/sites-enabled/certs:/etc/nginx/certs --network=chordockerized_default nginx
