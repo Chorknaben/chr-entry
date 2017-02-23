@@ -8,7 +8,7 @@ ssl_session_timeout 60m;
 server {
 	listen 443 ssl http2;
 	listen [::]:443 ssl http2;
-	server_name $CHORSERV_DOMAIN
+	server_name $CHORSERV_DOMAIN;
 	ssl_certificate /etc/letsencrypt/live/$CHORSERV_DOMAIN/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/$CHORSERV_DOMAIN/privkey.pem;
 	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
