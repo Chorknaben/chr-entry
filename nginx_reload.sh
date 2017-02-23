@@ -13,10 +13,10 @@ function create {
 }
 
 create chorserv-server-site-bundle chorknaben-biberach.de 8000
-#create chr-cms backend.chorknaben-biberach.de 8002
+create chr-cms backend.chorknaben-biberach.de 8002
 
 create chorserv-server-site-bundle-staging staging.chorknaben-biberach.de 8000
-#create chr-cms-staging backend.staging.chorknaben-biberach.de 8002
+create chr-cms-staging backend.staging.chorknaben-biberach.de 8002
 
 if pgrep -x "nginx" > /dev/null
 then
