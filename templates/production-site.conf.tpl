@@ -1,9 +1,6 @@
-upstream site {
+upstream $CHORSERV_DOMAIN {
 	$CHORSERV_IPS
 }
-
-ssl_session_cache shared:SSL:20m;
-ssl_session_timeout 60m;
 
 server {
 	listen 443 ssl http2;
@@ -17,19 +14,19 @@ server {
 	add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
 	location / {
-		proxy_pass http://site;
+		proxy_pass http://$CHORSERV_DOMAIN;
 	}
 
 	location ~ /.well-known {
-		root /var/letsencrypt;
+		root /etc/letsencrypt/webroot;
 		allow all;
 	}
 }
 
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	server_name _;
+	listen 80;
+	listen [::]:80;
+	server_name $CHORSERV_DOMAIN;
 
 	add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 	return 301 https://$host$request_uri;

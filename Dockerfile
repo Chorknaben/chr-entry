@@ -5,6 +5,5 @@ RUN apt-get -y update
 RUN apt-get -y install dnsutils
 
 COPY templates /templates
-COPY sites-enabled /etc/nginx/sites-enabled
 COPY nginx_reload.sh /nginx_reload.sh
 ENTRYPOINT /bin/bash /nginx_reload.sh && nginx -g 'daemon off;'
