@@ -9,7 +9,6 @@ server {
 	ssl_certificate /etc/letsencrypt/live/$CHORSERV_DOMAIN/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/$CHORSERV_DOMAIN/privkey.pem;
 	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-	ssl_ciphers HIGH:!aNULL:!MD5;
 	ssl_session_cache shared:SSL:20m;
 	ssl_session_timeout 180m;
 	ssl_prefer_server_ciphers on;
